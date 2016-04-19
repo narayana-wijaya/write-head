@@ -11,7 +11,7 @@ var result = {};
 app.get('/api/whoami', function(req, res){
 	//result.ipaddress = req.ip;
 	var address = os.networkInterfaces();
-	result.ipaddress = address;
+	result.ipaddress = address['eth0'][0].address;
 	result.software = os.type();
 	res.send(result);
 })
