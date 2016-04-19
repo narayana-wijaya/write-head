@@ -8,21 +8,12 @@ app.set('port', (process.env.PORT || 5000));
 var result = {};
 
 app.get('/api/whoami', function(req, res){
-	var get_url = url.parse(req.url, true).path;
-	
+	var address = os.networkInterfaces();
+	result.ipaddress = address['Wi-Fi'][1].address;
+	result.software = os.type();
 	res.send(result);
 })
-//chech ip address tp belum minta url
-dns.lookup('heroku.com', function(err, addresses, family){
-	console.log(addresses);
-	result.ipaddress = addresses;
-});
 
-/*{
-	"ipaddress":"114.124.38.135",
-	"language":"en-US",
-	"software":"Windows NT 10.0; WOW64"} osType()
-*/
 app.listen(app.get('port'), function(){
 	console.log('Application start at localhost:5000');
 })
