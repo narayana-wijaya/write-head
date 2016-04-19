@@ -10,7 +10,7 @@ var result = {};
 app.get('/api/whoami', function(req, res){
 	var address = os.networkInterfaces();
 	//result.ipaddress = address['Wi-Fi'][1].address;
-	result.software = os.type();
+	//result.software = os.type();
 	res.send(result);
 })
 
