@@ -8,16 +8,12 @@ app.set('port', (process.env.PORT || 5000));
 var result = {};
 
 app.get('/api/whoami', function(req, res){
+	result.ipaddress = req.ip;
 	//var address = os.networkInterfaces();
 	//result.ipaddress = address['Wi-Fi'][1].address;
 	//result.software = os.type();
 	res.send(result);
 })
-
-dns.lookup('heroku.com', function(err, addresses, family){
-	console.log(addresses);
-	result.ipaddress = addresses;
-});
 
 app.listen(app.get('port'), function(){
 	console.log('Application start at localhost:5000');
