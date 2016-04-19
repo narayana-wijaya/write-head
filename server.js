@@ -2,6 +2,7 @@ var express = require('express');
 var app = express();
 var url = require('url');
 const dns = require('dns');
+var os = require('os');
 
 app.set('port', (process.env.PORT || 5000));
 
